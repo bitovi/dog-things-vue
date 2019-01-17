@@ -1,31 +1,48 @@
 import ndjsonStream from 'can-ndjson-stream';
-import fetch from 'isomorphic-fetch';
 
 const supportsStream = typeof global.ReadableStream !== 'undefined';
 const ENDPOINT = 'http://206.189.197.112';
 
 export async function getProducts(callback) {
-  let res = await fetch(`${ENDPOINT}/product${supportsStream ? '' : '?json'}`);
+  let url = `${ENDPOINT}/product${supportsStream ? '' : '?json'}`;
 
   if(supportsStream) {
+    let res = await fetch(url);
     let stream = ndjsonStream(res.body);
     let reader = stream.getReader();
   
-    // eslint-disable-next-line
     while (true) {
       const {done, value} = await reader.read();
       if (done) return;
       callback(value);
     }
   } else {
-    let json = await res.json();
-    return json;
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onload = () => {
+      let json = JSON.parse(xhr.responseText);
+      callback(json);
+    };
   }
 }
 
 export async function getCart() {
-  let res = await  fetch(`${ENDPOINT}/cart`);
+  let url = `${ENDPOINT}/cart`;
 
-  let json = await res.json();
-  return json;
+  if(supportsStream) {
+    let res = await  fetch(url);
+
+    let json = await res.json();
+    return json;
+  } else {
+    return new Promise((resolve, reject) => {
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', url);
+      xhr.onload = () => {
+        let json = JSON.parse(xhr.responseText);
+        resolve(json);
+      };
+      xhr.onerror = reject;
+    });
+  }
 }

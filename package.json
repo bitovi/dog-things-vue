@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "can-ndjson-stream": "^1.0.0",
-    "isomorphic-fetch": "^2.2.1",
     "vue": "^2.5.21"
   },
   "devDependencies": {
