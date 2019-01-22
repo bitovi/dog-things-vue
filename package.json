@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "prod": "incremental dist/index.html"
+    "prod": "incremental dist/index.html",
+    "push-ghpages": "cd dist && git init && git remote add origin git@github.com:bitovi/dog-things-vue.git && git checkout -b gh-pages && git add -A && git commit -m site && git push -f origin gh-pages && cd ..",
+    "deploy": "npm run build && npm run push-ghpages"
   },
   "dependencies": {
     "can-ndjson-stream": "^1.0.0",
