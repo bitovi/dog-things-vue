@@ -1,0 +1,95 @@
+body {
+  font-family: var(--fontFamilyBook);
+  background-color: var(--body);
+  color: var(--fontColorBody);
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.2em; 
+}
+header {
+  background-color: var(--mainColor);
+  display: flex;
+  padding: 0 3em;
+  height: 100px;
+  position: relative;
+  margin-bottom: 3em;
+}
+header .header-left,
+header .header-right {
+  flex: 1;
+}
+header .header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+header .app-logo {
+  width: 130px;
+  height: 100px;
+  background: white;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, .2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 25px;     
+  border-top: solid var(--mainColorDark) 5px;
+}
+header a.cart-link {
+  background-color: white;
+  padding: 0.5em 1em;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  color: var(--fontColorLinks);
+  text-decoration: none;
+}
+header .cart-count {
+  display: block;
+  padding-left: 5px;
+  font-family: var(--fontFamilyMedium);
+  font-size: 1.2em;
+  font-weight: bold;
+}
+header .app-logo .logo-bone {
+  fill: var(--mainColor);
+}
+
+header .app-logo .logo-dog {
+    fill: var(--mainColor);
+}
+
+header .app-logo .logo-things {
+    fill: var(--mainColorDark);
+}
+.product-page {
+  display: flex;
+  margin: 0 4rem;
+  
+}
+@media screen and (max-width: 580px){
+  .product-page {
+    flex-direction: column;
+  }
+}
+
+.product-page .sideoptions {
+  width: 12em;
+}
+.product-page .sideoptions h1 {
+  font-family: var(--fontFamilyMedium);
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.product-page .sideoptions ul {
+  padding: 0;
+  list-style-type: none;
+  line-height: 1.5rem;
+}
+.product-page product-list {
+  flex: 5;
+}
