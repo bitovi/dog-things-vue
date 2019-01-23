@@ -1,0 +1,1 @@
+web: node node_modules/.bin/incremental dist/index.html
