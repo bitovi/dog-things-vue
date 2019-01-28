@@ -12,7 +12,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "@bitovi/incremental": "^1.0.2",
+    "@bitovi/velocirender": "^1.2.1",
     "can-ndjson-stream": "^1.0.0",
     "vue": "^2.5.21"
   },

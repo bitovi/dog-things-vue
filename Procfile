@@ -1,1 +1,1 @@
-web: node node_modules/.bin/incremental dist/index.html
+web: node node_modules/.bin/velocirender --exp-query-static --throttle 7250000 dist/index.html
