@@ -65,6 +65,11 @@ header .app-logo .logo-dog {
 header .app-logo .logo-things {
     fill: var(--mainColorDark);
 }
+
+header .app-logo svg {
+  visibility: visible;
+}
+
 .product-page {
   display: flex;
   margin: 0 4rem;
