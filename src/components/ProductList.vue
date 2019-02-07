@@ -30,7 +30,15 @@ export default {
   },
   mounted () {
     api.getProducts(product => {
+      if(!this.products.length && window.parent) {
+        window.parent.postMessage("first-item", "*");
+      }
+
       this.products.push(product);
+    }).then(() => {
+      if(window.parent) {
+        window.parent.postMessage("last-item", "*");
+      }
     });
   }
 }
